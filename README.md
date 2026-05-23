@@ -14,11 +14,11 @@ Simple userscript that adds a download button in the song info of the revealed s
 ## [AnisongDB Download Song](https://github.com/Hadarios/AMQ-Scripts/raw/master/downloadSongAnisongdb.user.js)
 Adds a download button in the info window of a song.  
 
+> [!WARNING]  
+> You MUST install the [AMQ Download Helper](#amq-download-helper) as well.  
+
 ## [AnisongDB Copy Metadata](https://github.com/Hadarios/AMQ-Scripts/raw/master/anisongdbCopySongMetadata.user.js)
 Adds a button to copy song metadata on AnisongDB.  
-
-> [!WARNING]  
-> You MUST install the [AMQ Download Helper](#amq-download-helper) as well.
 
 ## [AMQ Hide Song Info](https://github.com/Hadarios/AMQ-Scripts/raw/master/amqHideSongInfo.user.js)
 Hides Song Info during guess phase.  
