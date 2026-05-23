@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Download Buttons for AnisongDB
 // @namespace    https://github.com/Hadarios
-// @version      0.0.3
+// @version      0.0.4
 // @description  Adds download buttons to AnisongDB, MUST BE USED WITH ITS HELPER : https://github.com/Hadarios/AMQ-Scripts/raw/master/amqDownloadHelper.user.js
 // @author       Hadarios
 // @match        https://anisongdb.com
@@ -11,18 +11,18 @@
 // @updateURL    https://github.com/Hadarios/AMQ-Scripts/raw/master/downloadSongAnisongdb.user.js
 // ==/UserScript==
 
-XMLHttpRequest.prototype.nativeOpen = XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.downloadPreviousOpen = XMLHttpRequest.prototype.open;
 
-XMLHttpRequest.prototype.customOpen = function(...args) {
+XMLHttpRequest.prototype.downloadOpen = function(...args) {
 
     setTimeout(() => {
         addDownloadButton();
     }, 1500);
 
-    return this.nativeOpen(...args);
+    return this.downloadPreviousOpen(...args);
 }
 
-XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.customOpen;
+XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.downloadOpen;
 
 setTimeout(() => {
     addDownloadButton();
