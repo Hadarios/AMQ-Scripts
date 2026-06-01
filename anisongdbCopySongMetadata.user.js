@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Copy metadata button for AnisongDB
 // @namespace    https://github.com/Hadarios
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds a button to copy song metadata on AnisongDB
 // @author       Hadarios
 // @match        https://anisongdb.com
@@ -14,12 +14,11 @@
 XMLHttpRequest.prototype.metadataPreviousOpen = XMLHttpRequest.prototype.open;
 
 XMLHttpRequest.prototype.metadataOpen = function(...args) {
-
+    var r = this.metadataPreviousOpen(...args);
     setTimeout(() => {
         addCopyMetadata();
-    }, 1500);
-
-    return this.metadataPreviousOpen(...args);
+    }, 1000);
+    return r
 }
 
 XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.metadataOpen;
