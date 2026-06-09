@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Copy metadata button for AnisongDB
 // @namespace    https://github.com/Hadarios
-// @version      1.0.2
+// @version      1.0.3
 // @description  Adds a button to copy song metadata on AnisongDB
 // @author       Hadarios
 // @match        https://anisongdb.com
@@ -12,6 +12,7 @@
 // ==/UserScript==
 
 function addCopyMetadata() {
+    console.log('Adding Copy Metadata button')
     if ($("#qpCopyMetadata").length != 0) {
         return;
     }
@@ -60,8 +61,9 @@ function addCopyMetadata() {
 }
 
 function setup() {
+    console.log('Setupping Copy Metadata')
     document.addEventListener("click", (event) => {
-        if (event.target.className !== 'fa fa-plus') return;
+        if (event.target.getAttribute('title') !== 'More information') return;
         setTimeout(() => {
             addCopyMetadata();
         }, 10);

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Download Buttons for AnisongDB
 // @namespace    https://github.com/Hadarios
-// @version      0.0.6
+// @version      0.0.7
 // @description  Adds download buttons to AnisongDB, MUST BE USED WITH ITS HELPER : https://github.com/Hadarios/AMQ-Scripts/raw/master/amqDownloadHelper.user.js
 // @author       Hadarios
 // @match        https://anisongdb.com
@@ -12,6 +12,7 @@
 // ==/UserScript==
 
 function addDownloadButton() {
+    console.log('Adding Download button')
     if ($("#qpDownloadSong").length != 0) {
         return;
     }
@@ -51,8 +52,9 @@ function addDownloadButton() {
 }
 
 function setup() {
+    console.log('Setupping Download button')
     document.addEventListener("click", (event) => {
-        if (event.target.className !== 'fa fa-plus') return;
+        if (event.target.getAttribute('title') !== 'More information') return;
         setTimeout(() => {
             addDownloadButton();
         }, 10);
